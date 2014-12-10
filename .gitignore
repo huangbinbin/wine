@@ -19,7 +19,8 @@
 /.vagrant
 /Vagrantfile
 /solr
-
+/config
+/app/assets/images/zhonglianimg
 /config/database.yml
 
 /.idea

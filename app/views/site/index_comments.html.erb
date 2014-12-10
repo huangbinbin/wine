@@ -3,25 +3,45 @@
 <% end %>
 <style type="text/css">
   .comments {
-    padding: 15px 15px 15px 15px;
+    padding: 15px;
     background-color: #ffffff;
     margin: 30px auto 0 auto;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
   }
 
-  .comments div {
-    border-bottom: 1px solid #ddd;
+  .comments > div {
+    border-bottom: 1px dashed #ddd;
     clear: both;
-    display: block;
+    padding: 5px;
   }
-
-  .comment p {
+/* change something */
+  .comment p , .comment span{
     margin: 5px;
     line-height: 18px;
-    font-size: 18px;
   }
-
+  .comment span{
+    font-size: 14px;
+    color: #999;
+  }
+  .comment p{
+    font-size: 16px;
+    word-wrap:break-word;
+  }
+  .comment div:first-child{
+    float: left;
+  }
+  .comment div:nth-child(2){
+    margin-left: 55px;
+  }
+.comment img{
+  border-radius: 50%;
+  display: block;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
   .add-comment {
     width: 80%;
     margin: 20px auto 80px auto;
@@ -31,14 +51,18 @@
     font-weight: bold;
     line-height: 18px;
     padding: 15px 0;
+    clear: both;
   }
 </style>
 <div class="comments">
   <% @comments.each do |c| %>
   <div class="comment">
-    <p><%= c.user.username %></p>
-    <p><%= c.body %></p>
-    <p><%= c.created_at.strftime("%Y-%m-%d") %></p>
+            <div><img src="/zhonglian/img/cat/bg-top.jpg" ></div>
+              <div>
+               <span><%= c.user.username %></span>
+              <span><%= c.created_at.strftime("%Y-%m-%d") %></span>
+             <p><%= c.body %></p>
+           </div>
   </div>
   <% end %>
 </div>
